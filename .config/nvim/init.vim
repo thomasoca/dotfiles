@@ -25,6 +25,7 @@ let g:airline_theme='codedark'
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>o :below 10sp term://$SHELL<cr>i
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
 function! IsNerdTreeOpen()
