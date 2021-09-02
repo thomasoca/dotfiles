@@ -25,7 +25,20 @@ let g:airline_theme='codedark'
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+function! IsNerdTreeOpen()
+    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
 
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+    if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+      NERDTreeFind
+      wincmd p
+    endif
+endfunction
 
 " disable all linters as that is taken care of by coc.nvim
 let g:go_diagnostics_enabled = 0
