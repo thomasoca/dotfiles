@@ -205,7 +205,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6", "", "" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -528,7 +528,6 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-          "steam",
           "Godot Engine",
           "discord",
           "xtightvncviewer"},
@@ -545,6 +544,16 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
+    -- Set custom rules
+    -- Discord rules
+    { rule = { class = "discord" }, 
+            properties = { maximized = true, floating = true, tag = "", switchtotag = true } },
+    -- Steam rules        
+    { rule = { class = "Steam" }, 
+            properties = { maximized = false, floating = true, tag = "", switchtotag = true } },
+    -- File manager rules
+    { rule = { class = "thunar" }, 
+            properties = { maximized = false, floating = false } },
     -- Add titlebars to normal clients and dialogs
     --{ rule_any = {type = { "normal", "dialog" }
     --  }, properties = { titlebars_enabled = true }
