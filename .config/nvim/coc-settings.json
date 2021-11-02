@@ -8,6 +8,7 @@
   "rust-analyzer.inlayHints.typeHintsSeparator": "‣ ",
   "rust-analyzer.inlayHints.chainingHintsSeparator": "‣ ",
   "rust-analyzer.hoverActions.enable": true,
+  "rust-analyzer.hoverActions.linksInHover": true,
   "rust-analyzer.inlayHints.chainingHints": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
@@ -16,7 +17,8 @@
     "css",
     "scss",
     "go",
-    "rust"
+    "rust",
+    "markdown"
   ],
   "coc.preferences.hoverTarget": "float",
   "go.goplsOptions": {
