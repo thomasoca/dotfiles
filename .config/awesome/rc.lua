@@ -92,7 +92,7 @@ awful.layout.layouts = {
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 mymainmenu = awful.menu({ items = {           
-   { "  Firefox", function() awful.util.spawn("firefox", false) end },
+   { "  Browser", function() awful.util.spawn("brave", false) end },
    { "  Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "   Manual", terminal .. " -e man awesome" },
    { "   Edit config", editor_cmd .. " " .. awesome.conffile },
@@ -368,7 +368,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() awful.util.spawn("rofi -modi drun -show drun -show-icons -width 22", false) end,
               {description = "show the menubar", group = "launcher"}),
     -- Launch Browser
-    awful.key({ modkey }, "b", function() awful.util.spawn("firefox", false) end,
+    awful.key({ modkey }, "b", function() awful.util.spawn("brave", false) end,
               {description = "Run internet browser", group = "launcher"}),
     -- Launch file manager
     awful.key({ modkey, "Shift" }, "e", function() awful.util.spawn("thunar", false) end,
@@ -379,8 +379,8 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioLowerVolume", function() volume_widget:dec() end),
     awful.key({ }, "XF86AudioMute", function() volume_widget:toggle() end),
     -- Take screenshot
-    awful.key({ modkey }, "Print", function () awful.util.spawn("spectacle") end,
-              {description = "take screenshot using spectacle", group = "screen"})
+    awful.key({ modkey }, "Print", function () awful.util.spawn("flameshot gui") end,
+              {description = "Take screenshot", group = "screen"})
 )
 
 clientkeys = gears.table.join(
@@ -558,8 +558,8 @@ awful.rules.rules = {
     --{ rule_any = {type = { "normal", "dialog" }
     --  }, properties = { titlebars_enabled = true }
     --},
-    -- Set Firefox rules.
-    { rule = { class = "firefox" },
+    -- Set Browser rules.
+    { rule = { class = "brave" },
           properties = { opacity = 1, maximized = false, floating = false } },
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
