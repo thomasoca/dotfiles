@@ -63,6 +63,7 @@ let g:go_metalinter_enabled = []
 let g:go_jump_to_error = 0
 
 " run go imports on file save
+let g:go_fmt_autosave = 1
 let g:go_fmt_command = "goimports"
 
 " automatically highlight variable your cursor is on
@@ -76,6 +77,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
+
+" Getting type info
+let g:go_auto_type_info = 1
 
 " Popup windows for Go Doc
 let g:go_doc_popup_window = 1
