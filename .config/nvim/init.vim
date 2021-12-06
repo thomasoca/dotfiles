@@ -14,6 +14,8 @@ call plug#begin(stdpath('data').'/plugged')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'cespare/vim-toml', { 'branch': 'main' }
   Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+  Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'ryanoasis/vim-devicons'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
@@ -32,13 +34,40 @@ let g:airline_theme='codedark'
 " ======colorscheme config=======
 colorscheme codedark
 
+" ==============Terminal=====================
+" open new split panes to right and below
+set splitright
+set splitbelow
+" turn terminal to normal mode with escape
+tnoremap <Esc> <C-\><C-n>
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" open terminal on ctrl+n
+function! OpenTerminal()
+    split term://${SHELL}
+  resize 10
+endfunction
+nnoremap <c-n> :call OpenTerminal()<CR>
+
+" ==================Switch panels======================
+" use alt+hjkl to move between split/vsplit panels
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+" ==================Custom hover command==================
+nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
+
 " ===========NERDTree config=============
-nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-b> :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <leader>o :below 10sp term://$SHELL<cr>i
-" Custom hover command
-nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
+
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
 function! IsNerdTreeOpen()
@@ -53,6 +82,15 @@ function! SyncTree()
       wincmd p
     endif
 endfunction
+
+" ======================fzf=====================
+nnoremap <C-p> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " ==========Go config============
 " disable all linters as that is taken care of by coc.nvim
