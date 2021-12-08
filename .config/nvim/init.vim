@@ -16,6 +16,7 @@ call plug#begin(stdpath('data').'/plugged')
   Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'psf/black', { 'branch': 'stable' }
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
@@ -272,3 +273,5 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+" ==============================Black==================================
+autocmd BufWritePre *.py execute ':Black'

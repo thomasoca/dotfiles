@@ -1,30 +1,31 @@
 {
-    "suggest.noselect": false,
-    "diagnostic.errorSign": "✘",
-    "diagnostic.warningSign": "!",
-    "diagnostic.infoSign": "?",
-    "diagnostic.checkCurrentLine": true,
-    "rust-analyzer.checkOnSave.command": "clippy",
-    "rust-analyzer.inlayHints.typeHintsSeparator": "‣ ",
-    "rust-analyzer.inlayHints.chainingHintsSeparator": "‣ ",
-    "rust-analyzer.hoverActions.enable": true,
-    "rust-analyzer.hoverActions.linksInHover": true,
-    "rust-analyzer.inlayHints.chainingHints": true,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "javascript",
-        "html",
-        "json",
-        "css",
-        "scss",
-        "go",
-        "rust",
-        "typescript",
-        "typescriptreact",
-        "markdown"
-    ],
-    "coc.preferences.hoverTarget": "float",
-    "go.goplsOptions": {
-        "staticcheck": true
-    }
+  "suggest.noselect": false,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "!",
+  "diagnostic.infoSign": "?",
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.refreshOnInsertMode": true,
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.inlayHints.typeHintsSeparator": "‣ ",
+  "rust-analyzer.inlayHints.chainingHintsSeparator": "‣ ",
+  "rust-analyzer.hoverActions.enable": true,
+  "rust-analyzer.hoverActions.linksInHover": true,
+  "rust-analyzer.inlayHints.chainingHints": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "html",
+    "json",
+    "css",
+    "scss",
+    "go",
+    "rust",
+    "typescript",
+    "typescriptreact",
+    "markdown"
+  ],
+  "coc.preferences.hoverTarget": "float",
+  "go.goplsOptions": {
+    "staticcheck": true
+  }
 }
