@@ -65,9 +65,9 @@ nnoremap <A-l> <C-w>l
 nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
 
 " ===========NERDTree config=============
-nnoremap <C-b> :NERDTree<CR>
+nnoremap <C-b> :NERDTree %<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTreeToggle %<CR>
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
@@ -116,6 +116,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
 
 " Getting type info
 let g:go_auto_type_info = 1
