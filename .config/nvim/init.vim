@@ -5,6 +5,7 @@ call plug#begin(stdpath('data').'/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'fatih/vim-go', {'do':':GoUpdateBinaries'}
   Plug 'tpope/vim-fugitive'
+  Plug 'mhinz/vim-signify'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'tomasiser/vim-code-dark'
@@ -28,6 +29,7 @@ set number
 set title
 set autoindent
 set copyindent
+set updatetime=100
 
 set clipboard+=unnamedplus
 let g:airline_theme='codedark'
@@ -66,7 +68,7 @@ nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
 
 " ===========NERDTree config=============
 nnoremap <C-b> :NERDTree %<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+"nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-t> :NERDTreeToggle %<CR>
 
 " sync open file with NERDTree
@@ -85,13 +87,14 @@ function! SyncTree()
 endfunction
 
 " ======================fzf=====================
+nnoremap <C-f> :Files %:p:h<CR>
 nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files'
 
 " ==========Go config============
 " disable all linters as that is taken care of by coc.nvim
