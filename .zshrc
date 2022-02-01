@@ -100,6 +100,9 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias vim='nvim'
+alias oldvim='vim'
+alias ls='ls --color=auto'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -110,4 +113,6 @@ zstyle :compinstall filename '/home/thomasoca/.zshrc'
 
 autoload -Uz compinit
 compinit
+eval "$(starship init zsh)"
 # End of lines added by compinstall
+
