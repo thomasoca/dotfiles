@@ -253,7 +253,7 @@ awful.screen.connect_for_each_screen(function(s)
             mycpu,
             mymem,
             --mytemp,
-            volume_widget{widget_type="icon_and_text"},
+            volume_widget{widget_type="icon_and_text", step=3},
             mytextclock,
             s.mylayoutbox,
         },
