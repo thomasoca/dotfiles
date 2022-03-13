@@ -17,6 +17,8 @@ call plug#begin(stdpath('data').'/plugged')
   Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
   Plug 'psf/black', { 'branch': 'stable' }
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
