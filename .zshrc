@@ -3,7 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/thomasoca/.oh-my-zsh"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -103,6 +102,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 alias vim='nvim'
 alias oldvim='vim'
 alias ls='ls --color=auto'
+alias lf='lfrun'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -115,4 +115,3 @@ autoload -Uz compinit
 compinit
 eval "$(starship init zsh)"
 # End of lines added by compinstall
-
