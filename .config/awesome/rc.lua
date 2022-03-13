@@ -333,9 +333,9 @@ globalkeys = gears.table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey, "Control" }, "Right", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
+    awful.key({ modkey, "Control" }, "Left", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
     awful.key({ modkey, "Control" }, "n",
@@ -365,7 +365,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar with rofi
-    awful.key({ modkey }, "p", function() awful.util.spawn("rofi -modi drun -show drun -show-icons -width 22", false) end,
+    awful.key({ modkey }, "space", function() awful.util.spawn("rofi -modi drun -show drun -show-icons -width 22", false) end,
               {description = "show the menubar", group = "launcher"}),
     -- Launch Browser
     awful.key({ modkey }, "b", function() awful.util.spawn("brave", false) end,
@@ -379,7 +379,7 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioLowerVolume", function() volume_widget:dec() end),
     awful.key({ }, "XF86AudioMute", function() volume_widget:toggle() end),
     -- Take screenshot
-    awful.key({ modkey }, "Print", function () awful.util.spawn("flameshot gui") end,
+    awful.key({ modkey, "Shift" }, "p", function () awful.util.spawn("flameshot gui") end,
               {description = "Take screenshot", group = "screen"})
 )
 
@@ -390,7 +390,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey   }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
