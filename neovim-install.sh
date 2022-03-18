@@ -20,7 +20,7 @@ if [ ! -x "$(command -v neovim)" ]; then
                 break
                 ;;
             "homebrew")
-                brew installl neovim
+                brew install neovim
                 break
                 ;;
             "Quit")
@@ -78,7 +78,7 @@ if [ ! -d "$DIR2" ]; then
       echo '{"dependencies":{}}'> package.json
     fi
     # Change extension names to the extensions you need
-    npm install coc-prettier coc-eslint coc-go coc-pyright coc-rust-analyzer coc-html coc-typescript --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+    npm install coc-prettier coc-eslint coc-go coc-pyright coc-rust-analyzer coc-html coc-tsserver --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 fi
 
 echo ' '
@@ -95,5 +95,8 @@ case "$choice" in
       cp $PWD/.config/nvim/init.vim ~/.config/nvim/
       cp $PWD/.config/nvim/coc-settings.json ~/.config/nvim/
       echo "Installation complete, please open the neovim and run :PlugInstall"
+      break
+      ;;
   * ) echo "invalid";;
 esac
+echo 'closing installation script'
