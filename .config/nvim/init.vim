@@ -20,6 +20,7 @@ call plug#begin(stdpath('data').'/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'psf/black', { 'branch': 'stable' }
+  Plug 'leafOfTree/vim-svelte-plugin'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
@@ -69,7 +70,7 @@ nnoremap <A-l> <C-w>l
 nnoremap <silent> <leader>h :call CocActionAsync('doHover')<cr>
 
 " ===========NERDTree config=============
-nnoremap <C-b> :NERDTree %<CR>
+nnoremap <C-b> :NERDTree <CR>
 "nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-t> :NERDTreeToggle %<CR>
 
@@ -280,6 +281,12 @@ let g:mkdp_filetypes = ['markdown']
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-
+let b:prettier_ft_default_args = {
+  \ 'parser': 'svelte',
+  \ }
 " ==============================Black==================================
 autocmd BufWritePre *.py execute ':Black'
+
+" ==============================Svelte=================================
+let g:vim_svelte_plugin_use_typescript = 1
+let g:vim_svelte_plugin_load_full_syntax = 1

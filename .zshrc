@@ -75,6 +75,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH=$HOME/.config/rofi/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -103,6 +104,7 @@ alias vim='nvim'
 alias oldvim='vim'
 alias ls='ls --color=auto'
 alias lf='lfrun'
+alias docker-start='sudo systemctl start docker'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
