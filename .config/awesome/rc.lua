@@ -14,6 +14,8 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+-- Capslock library (https://github.com/stefano-m/awesome-capslock_widget)
+local capslock = require("capslock")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -247,12 +249,13 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            spacing = 15,
+            spacing = 10,
             mykeyboardlayout,
             wibox.widget.systray(),
             mycpu,
             mymem,
             --mytemp,
+            capslock,
             volume_widget{widget_type="icon_and_text", step=3},
             mytextclock,
             s.mylayoutbox,
@@ -378,6 +381,7 @@ globalkeys = gears.table.join(
     awful.key({ }, "XF86AudioRaiseVolume", function() volume_widget:inc() end),
     awful.key({ }, "XF86AudioLowerVolume", function() volume_widget:dec() end),
     awful.key({ }, "XF86AudioMute", function() volume_widget:toggle() end),
+    capslock.key,
     -- Take screenshot
     awful.key({ modkey, "Shift" }, "p", function () awful.util.spawn("flameshot gui") end,
               {description = "Take screenshot", group = "screen"})
