@@ -76,6 +76,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH=$HOME/.config/rofi/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
+export PATH="/home/thomasoca/.local/bin:$PATH"
+export PATH=$PATH:/home/thomasoca/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
