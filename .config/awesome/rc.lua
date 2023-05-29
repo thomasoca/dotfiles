@@ -534,6 +534,7 @@ awful.rules.rules = {
           "veromix",
           "Godot Engine",
           "discord",
+          "steam",
           "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -553,7 +554,7 @@ awful.rules.rules = {
     { rule = { class = "discord" }, 
             properties = { maximized = true, floating = true, tag = "", switchtotag = true } },
     -- Steam rules        
-    { rule = { class = "Steam" }, 
+    { rule = { class = "steam" }, 
             properties = { maximized = false, floating = true, tag = "", switchtotag = true } },
     -- File manager rules
     { rule = { class = "thunar" }, 

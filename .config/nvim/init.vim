@@ -21,7 +21,9 @@ call plug#begin(stdpath('data').'/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'psf/black', { 'branch': 'stable' }
   Plug 'leafOfTree/vim-svelte-plugin'
-  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+  Plug 'hashivim/vim-terraform'
+  Plug 'SirVer/ultisnips'
 call plug#end()
 
 set tabstop=4
@@ -36,7 +38,8 @@ set updatetime=100
 
 set clipboard+=unnamedplus
 let g:airline_theme='codedark'
-
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " ======colorscheme config=======
 colorscheme codedark
 
@@ -141,7 +144,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
@@ -151,7 +154,7 @@ let g:closetag_filetypes = 'html,xhtml,phtml'
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
 
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
@@ -290,3 +293,9 @@ autocmd BufWritePre *.py execute ':Black'
 " ==============================Svelte=================================
 let g:vim_svelte_plugin_use_typescript = 1
 let g:vim_svelte_plugin_load_full_syntax = 1
+
+"===============================Terraform==============================
+let g:terraform_fmt_on_save = 1
+
+"===============================Treesitter=============================
+autocmd BufEnter *.py execute ':TSEnable highlight'
