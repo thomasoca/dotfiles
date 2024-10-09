@@ -5,6 +5,8 @@ require("conform").setup {
     go = { "goimports", "gofmt" },
     css = { "prettier" },
     html = { "prettier" },
+    yaml = { "prettier" },
+    json = { "prettier" },
   },
 
   format_on_save = {
